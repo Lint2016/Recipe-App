@@ -2,127 +2,225 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
+:root {
+    --primary-color: #2563eb;
+    --text-color: #1f2937;
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+}
 
-img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+html {
+    font-size: 16px;
+    background-color: var(--background-color);
 }
-html{
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 100%;  
-    background-color: #f0f8ff;
-}
-   body {
-        margin: 0;
-        height: 100%; 
-    }
 
-h2{
-    text-align: center;
-    color: grey; 
-}
-section{
+body {
+    color: var(--text-color);
+    line-height: 1.5;
     min-height: 100vh;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    padding: 100px 0;
 }
-.container{
+
+section {
+    padding: 2rem 1rem;
+}
+
+.container {
     width: 90%;
-    height: auto;
     max-width: 1200px;
     margin: 0 auto;
 }
-.brand{
-    text-align: center;
-    font-size: 4rem;
-    margin-bottom: 30px;
-    color: transparent; /* Make the text color transparent */
-    -webkit-text-stroke: 2px gray; /* Add a thick gray border to the text */
 
+.brand {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.025em;
 }
-form{
-    width: 300px;
-    max-width: 400px;
-    margin: 20px auto;
-    background-color: rgb(233, 233, 233);
-    border-radius: 20px;
-    border: 3px solid gray;
+
+h2 {
+    text-align: center;
+    color: #64748b;
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
 }
-form input{
-    width: 90%;
+
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: var(--card-background);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    display: flex;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+form:focus-within {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+form input {
+    flex: 1;
     background-color: transparent;
-    padding: 10px;
-    border-radius: 20px;
+    padding: 0.75rem;
     border: none;
     outline: none;
-    font-size: 1.5rem;
-    display: inline-block;
-}
-.search-result{
-margin-top: 50px;
-display: grid;
-width: 100%;
-gap: 50px;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-.item{
-    width: 100%;
-    border-radius: 8px;
-    background-color: rgb(37, 37, 37);
-    padding: 55px;
-    overflow: hidden;
-}
-img{
-  border-radius: 5px;  
-  width: 100%;
-  height: 300px;
-}
-.flex-container{
-display: flex;
-align-items: center;
-justify-content: space-between;
-}
-.title{
-    color: whitesmoke;
-    margin: 20px 10px 0 0;
-    font-size: 1.8rem;
-    font-weight: 4rem;
-}
-.view-button{
-text-decoration: none;
-text-align: center;
-padding: 10px 5px;
-background-color: dimgray;
-border-radius: 5px;
-border: 2px dimgray;
-width: auto;
-color: whitesmoke;
-margin-top: 20px;
-align-self: self-start;
-}
-.item-data{
-    color: whitesmoke;
-    display: block;
-    margin-top: 10px;
-    line-height: 2rem;
-    font-size: 1.5rem;
-    letter-spacing: .05rem;
-}
-.footer{
-    text-align: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
-font-size: 20px;
-background: dimgray;
-padding: 20px;
-color: white;
+    font-size: 1rem;
+    color: var(--text-color);
 }
 
+form button {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #1d4ed8;
+}
+
+.search-result {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.item {
+    background-color: var(--card-background);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.item-content {
+    padding: 1.5rem;
+}
+
+.flex-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.title {
+    color: var(--text-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.view-button {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.view-button:hover {
+    background-color: #1d4ed8;
+}
+
+.item-data {
+    color: #64748b;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer {
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+}
+
+.footer footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer .copyright {
+    font-size: 0.875rem;
+    color: #64748b;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.footer .author {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer .author:hover {
+    color: #1d4ed8;
+}
+
+.footer .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.footer .social-links a {
+    color: #64748b;
+    transition: color 0.2s ease;
+}
+
+.footer .social-links a:hover {
+    color: #2563eb;
+}
+
+@media (max-width: 768px) {
+    .brand {
+        font-size: 2.5rem;
+    }
+    
+    form {
+        width: 90%;
+    }
+    
+    .search-result {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
